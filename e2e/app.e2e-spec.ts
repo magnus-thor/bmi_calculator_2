@@ -1,21 +1,27 @@
-import { Page } from './app.po';
+import { by, browser, element } from 'protractor'
 
 describe('App', () => {
-  let page: Page;
-
-  beforeEach(() => {
-    page = new Page();
-  });
 
   describe('default screen', () => {
     beforeEach(() => {
-      page.navigateTo('/');
+      browser.get('/');
     });
 
-    it('should have a title saying Page One', () => {
-      page.getPageOneTitleText().then(title => {
-        expect(title).toEqual('Page One');
-      });
+    it('App should have a title', () => {
+      expect(browser.getTitle()).toContain('Ionic App')
     });
-  })
+
+    it('the about tab is displayed by default', () => {
+      expect(element(by.css('[aria-selected=true]'))
+        .getAttribute('innerHTML'))
+        .toContain('About');
+
+    });
+
+    it('should have a title saying About', () => {
+      expect(element(by.css('ion-navbar:first-child'))
+        .getAttribute('innerHTML'))
+        .toContain('About');
+    });
+  });
 });
