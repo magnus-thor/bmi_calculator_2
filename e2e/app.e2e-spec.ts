@@ -23,5 +23,11 @@ describe('App', () => {
         .getAttribute('innerHTML'))
         .toContain('About');
     });
+
+    it('Should have a Calculator Tab', () => {
+      expect(element(by.css('[aria-controls="tabpanel-t0-1"]'))
+      .getAttribute('innerHTML'))
+      .toContain('Calculator');
+    })
   });
 });
