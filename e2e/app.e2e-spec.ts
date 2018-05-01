@@ -14,18 +14,18 @@ describe('App', () => {
     it('the about tab is displayed by default', () => {
       expect(element(by.css('[aria-selected=true]'))
         .getAttribute('innerHTML'))
-        .toContain('About');
+        .toContain('Calculator');
 
     });
 
-    it('should have a title saying About', () => {
+    it('should have a title saying Calculator', () => {
       expect(element(by.css('ion-navbar:first-child'))
         .getAttribute('innerHTML'))
-        .toContain('About');
+        .toContain('Calculator');
     });
 
     it('Should have a Calculator Tab', () => {
-      expect(element(by.css('[aria-controls="tabpanel-t0-1"]'))
+      expect(element(by.css('[aria-controls="tabpanel-t0-0"]'))
       .getAttribute('innerHTML'))
       .toContain('Calculator');
     })
