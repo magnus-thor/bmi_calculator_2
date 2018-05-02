@@ -15,7 +15,6 @@ describe('App', () => {
       expect(element(by.css('[aria-selected=true]'))
         .getAttribute('innerHTML'))
         .toContain('Calculator');
-
     });
 
     it('should have a title saying Calculator', () => {
@@ -26,8 +25,10 @@ describe('App', () => {
 
     it('Should have a Calculator Tab', () => {
       expect(element(by.css('[aria-controls="tabpanel-t0-0"]'))
-      .getAttribute('innerHTML'))
-      .toContain('Calculator');
+        .getAttribute('innerHTML'))
+        .toContain('Calculator');
     })
   });
+
+
 });

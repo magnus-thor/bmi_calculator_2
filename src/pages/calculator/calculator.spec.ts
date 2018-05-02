@@ -7,7 +7,7 @@ import {
     StatusBarMock,
     SplashScreenMock
 } from '../../../test-config/mocks-ionic';
-import { NavControllerMock, NavParamsMock, ConfigMock, Key } from 'ionic-mocks'
+import { NavControllerMock, NavParamsMock, ConfigMock, KeyboardMock } from 'ionic-mocks'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -30,7 +30,8 @@ describe('AppComponent', () => {
                 { provide: NavController, useFactory: () => NavControllerMock.instance() },
                 { provide: NavParams, useFactory: () => NavParamsMock.instance() },
                 { provide: Config, useFactory: () => ConfigMock.instance() },
-                App, DomController, Keyboard
+                { provide: Keyboard, useFactory: () => KeyboardMock.instance() },
+                App, DomController
             ]
         })
 
