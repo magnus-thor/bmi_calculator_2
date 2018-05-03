@@ -24,9 +24,14 @@ describe('App', () => {
     });
 
     it('Should have a Calculator Tab', () => {
-      expect(element(by.css('[aria-controls="tabpanel-t0-0"]'))
+      expect(element(by.css('#tab-t0-0'))
         .getAttribute('innerHTML'))
         .toContain('Calculator');
+    })
+    it('Should have a about Tab', () => {
+      expect(element(by.css('#tab-t0-1'))
+        .getAttribute('innerHTML'))
+        .toContain('About');
     })
   });
 
