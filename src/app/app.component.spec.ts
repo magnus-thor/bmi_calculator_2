@@ -1,11 +1,7 @@
 import { MyApp } from './app.component'
 import { TestBed } from '@angular/core/testing'
 import { IonicModule, Platform } from 'ionic-angular';
-import {
-    PlatformMock,
-    StatusBarMock,
-    SplashScreenMock
-  } from '../../test-config/mocks-ionic';
+import { PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -22,9 +18,9 @@ describe('AppComponent', () => {
                 IonicModule.forRoot(MyApp)
             ],
             providers: [
-                { provide: Platform, useClass: PlatformMock },
-                { provide: StatusBar, useClass: StatusBarMock},
-                { provide: SplashScreen, useClass: SplashScreenMock }
+                { provide: Platform, useFactory: () => PlatformMock.instance() },
+                { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
+                { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() }
             ]
         })
 
@@ -32,8 +28,8 @@ describe('AppComponent', () => {
         component = fixture.componentInstance;
     })
 
-    it('should create the app',() => {
+    it('should create the app', () => {
         expect(component).toBeTruthy();
-      });
+    });
 
 })
