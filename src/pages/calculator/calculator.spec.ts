@@ -42,6 +42,7 @@ describe('AppComponent', () => {
 
     it('should create the calculator page', () => {
         expect(component).toBeTruthy();
+        expect(component instanceof CalculatorPage).toEqual(true);
     });
 
     it('calculateBMI', () => {
@@ -52,20 +53,34 @@ describe('AppComponent', () => {
 
         expect(component.bmiValue).toEqual(26.01);
         expect(component.setBMIMessage).toHaveBeenCalled
-    })
+    });
 
     it('setBMIMessage if bmiValue is under 18.5', () => {
         component.bmiValue = 18;
         component.setBMIMessage();
 
         expect(component.bmiMessage).toEqual('Underweight')
-    })
+    });
     
     it('setBMIMessage if bmiValue is over 18.5 and under 25', () => {
         component.bmiValue = 22;
         component.setBMIMessage();
 
         expect(component.bmiMessage).toEqual('Normal')
-    })
+    });
+
+    it('setBMIMessage if bmiValue is over 25 and under 30', () => {
+        component.bmiValue = 27;
+        component.setBMIMessage();
+
+        expect(component.bmiMessage).toEqual('Overweight')
+    });
+
+    it('setBMIMessage if bmiValue is over 30', () => {
+        component.bmiValue = 31;
+        component.setBMIMessage();
+
+        expect(component.bmiMessage).toEqual('Obese')
+    });
 
 })

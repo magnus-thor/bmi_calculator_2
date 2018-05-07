@@ -30,6 +30,7 @@ describe('AppComponent', () => {
 
     it('should create the app', () => {
         expect(component).toBeTruthy();
+        expect(component instanceof MyApp).toEqual(true);
     });
 
 })
