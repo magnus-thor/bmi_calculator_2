@@ -2,11 +2,6 @@ import { CalculatorPage } from './calculator'
 import { TestBed } from '@angular/core/testing'
 import { IonicPageModule, Platform, NavController, NavParams, Config,
 App, DomController, Keyboard, GestureController, Form } from 'ionic-angular';
-// import {
-//     PlatformMock,
-//     StatusBarMock,
-//     SplashScreenMock
-// } from '../../../test-config/mocks-ionic';
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock, NavParamsMock, ConfigMock, KeyboardMock, FormMock } from 'ionic-mocks'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,41 +41,41 @@ describe('AppComponent', () => {
     });
 
     it('calculateBMI', () => {
-        spyOn(component, 'setBMIMessage')
+        spyOn(component, 'setBMIMessage');
         component.weight = 90;
         component.height = 186;
         component.calculateBMI();
 
         expect(component.bmiValue).toEqual(26.01);
-        expect(component.setBMIMessage).toHaveBeenCalled
+        expect(component.setBMIMessage).toHaveBeenCalled;
     });
 
     it('setBMIMessage if bmiValue is under 18.5', () => {
         component.bmiValue = 18;
         component.setBMIMessage();
 
-        expect(component.bmiMessage).toEqual('Underweight')
+        expect(component.bmiMessage).toEqual('Underweight');
     });
     
     it('setBMIMessage if bmiValue is over 18.5 and under 25', () => {
         component.bmiValue = 22;
         component.setBMIMessage();
 
-        expect(component.bmiMessage).toEqual('Normal')
+        expect(component.bmiMessage).toEqual('Normal');
     });
 
     it('setBMIMessage if bmiValue is over 25 and under 30', () => {
         component.bmiValue = 27;
         component.setBMIMessage();
 
-        expect(component.bmiMessage).toEqual('Overweight')
+        expect(component.bmiMessage).toEqual('Overweight');
     });
 
     it('setBMIMessage if bmiValue is over 30', () => {
         component.bmiValue = 31;
         component.setBMIMessage();
 
-        expect(component.bmiMessage).toEqual('Obese')
+        expect(component.bmiMessage).toEqual('Obese');
     });
 
 })

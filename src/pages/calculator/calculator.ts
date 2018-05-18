@@ -31,7 +31,6 @@ export class CalculatorPage {
     if (this.bmiValue > 18.5 && this.bmiValue < 25) {
       this.bmiMessage = "Normal"
     }
-  
     if (this.bmiValue > 25 && this.bmiValue < 30) {
       this.bmiMessage = "Overweight"
     }
